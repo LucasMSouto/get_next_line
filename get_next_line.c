@@ -1,4 +1,14 @@
-/* HEADER */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lde-matt <lde-matt@student.42.pt>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/22 12:37:11 by lde-matt          #+#    #+#             */
+/*   Updated: 2023/02/22 13:12:27 by lde-matt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line.h"
 
@@ -18,8 +28,8 @@ char	*get_next_line(int fd)
 	line = NULL;
 	while (buf[0] || read(fd, buf, BUFFER_SIZE) > 0)
 	{
-		line = ft_strjoin(line, buf);
-		if (updateBuf(buf))
+		line = strjoin_gnl(line, buf);
+		if (update_buf(buf))
 			break ;
 	}
 	return (line);

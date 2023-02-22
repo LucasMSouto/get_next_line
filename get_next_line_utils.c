@@ -1,8 +1,18 @@
-/* HEADER */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lde-matt <lde-matt@student.42.pt>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/22 12:37:58 by lde-matt          #+#    #+#             */
+/*   Updated: 2023/02/22 13:08:51 by lde-matt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-int		findBreak(char *str)
+int	find_break(char *str)
 {
 	int	i;
 
@@ -16,47 +26,47 @@ int		findBreak(char *str)
 	return (i);
 }
 
-int		updateBuf(char *buf)
+int	update_buf(char *buf)
 {
 	int	i;
 	int	j;
-	int	isNewLine;
+	int	is_nl;
 
 	i = 0;
 	j = 0;
-	isNewLine = 0;
+	is_nl = 0;
 	while (buf[i])
 	{
-		if (isNewLine)
+		if (is_nl)
 			buf[j++] = buf[i];
 		if (buf[i] == '\n')
-			isNewLine = 1;
+			is_nl = 1;
 		buf[i++] = 0;
 	}
-	return (isNewLine);
+	return (is_nl);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*strjoin_gnl(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
-	int		strIndex;
+	int		str_index;
 
 	i = 0;
-	strIndex = 0;
-	str = malloc(findBreak(s1) + findBreak(s2) + 1);
+	str_index = 0;
+	str = malloc(find_break(s1) + find_break(s2) + 1);
 	if (!str)
 		return (0);
 	while (s1 && s1[i])
-		str[strIndex++] = s1[i++];
+		str[str_index++] = s1[i++];
 	free (s1);
 	i = 0;
 	while (*s2)
 	{
-		str[strIndex++] = *s2;
+		str[str_index++] = *s2;
 		if (*s2++ == '\n')
 			break ;
 	}
-	str[strIndex] = '\0';
+	str[str_index] = '\0';
 	return (str);
 }
