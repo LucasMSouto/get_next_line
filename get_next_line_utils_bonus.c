@@ -41,7 +41,7 @@ int	update_buf(char *buf)
 			buf[j++] = buf[i];
 		if (buf[i] == '\n')
 			is_nl = 1;
-		buf[i++] = '\0';
+		buf[i++] = 0;
 	}
 	return (is_nl);
 }

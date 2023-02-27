@@ -6,7 +6,7 @@
 /*   By: lde-matt <lde-matt@student.42.pt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:37:49 by lde-matt          #+#    #+#             */
-/*   Updated: 2023/02/22 13:45:53 by lde-matt         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:09:13 by lde-matt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@
 #  define BUFFER_SIZE 21
 # endif
 
-# ifndef FOPEN_MAX
-#  define FOPEN_MAX 8
-# endif
-
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 # include <fcntl.h>
 
 int		find_break(char *str);
